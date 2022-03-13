@@ -1,4 +1,6 @@
-def call(def usernameInput)
+def call(def result)
 {
-echo "sending email to ${usernameInput}"
+  emailext body: '''${SCRIPT, template="groovy_html.template"}''', 
+  subject: result + " : " + env.JOB_NAME, 
+  to: 'shrihari4607@gmail.com'
 }
